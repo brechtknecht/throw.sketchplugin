@@ -38,13 +38,13 @@ export default function () {
 
   // add a handler for a call from web content's javascript
   webContents.on('submit', data => {
-    UI.message("Options Object recieved 🔥 – continue...")
-
     // closes webview if data is transfered
     getWebview(webviewIdentifier).close();
 
     // calls the manipulation methods
     config.methods.execute(data, document.selectedLayers);
+
+    UI.message('Layers updated! ☄️');
   });
   
   browserWindow.loadURL(require('../resources/webview.html'))
