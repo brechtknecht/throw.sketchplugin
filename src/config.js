@@ -31,8 +31,13 @@ const methods = {
             this.flip(selectedLayers);
         }
     },
-    opacity: (layers) => {
-        console.log("Layers@OpacityCall: ", layers);
+    opacity: (selectedLayers) => {
+        for (let layer of selectedLayers.layers) {
+            // generates a value between 0.7 and 1.0 for each layer
+            let randomOpacity = (Math.floor(Math.random() * 30) + 70) / 100;
+
+            layer.style.opacity = randomOpacity;
+        }
     },
     size: (layers) => {
         console.log("Layers@SizeCall: ", layers);
