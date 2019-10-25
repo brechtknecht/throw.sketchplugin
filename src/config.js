@@ -48,12 +48,19 @@ const methods = {
     },
     rotation: (selectedLayers) => {
         for (let layer of selectedLayers.layers) {
+            // generates a value between -30° and 30° of the layer rotation
             let randomRotation = (Math.floor(Math.random() * 60) - 30);
-            console.log(randomRotation);
             layer.transform.rotation = randomRotation;
         }
     },
-    flip: (lselectedLayers) => {
+    flip: (selectedLayers) => {
+        for (let layer of selectedLayers.layers) {
+            // generates a boolean, if the layer should be flipped or not
+            var randomFlipVertically = Math.random() >= 0.5;
+            var randomFlipHorizontally = Math.random() >= 0.5;
+            layer.transform.flippedVertically   = randomFlipVertically;
+            layer.transform.flippedHorizontally = randomFlipHorizontally;
+        }
         
     }
 }
