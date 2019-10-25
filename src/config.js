@@ -38,16 +38,19 @@ const methods = {
             layer.style.opacity = randomOpacity;
         }
     },
-    size: (layers) => {
+    size: (selectedLayers) => {
         for(let layer of selectedLayers.layers) {
-            
+            // generates a value between 70% and 130% of the layer scaling
+            let randomSize = (Math.floor(Math.random() * 60) - 30) / 100;
+            layer.frame.width = (layer.frame.width) * (1 - randomSize);
+            layer.frame.height = (layer.frame.height) * (1 - randomSize);
         }
     },
-    rotation: (layers) => {
-        console.log("Layers@RotationCall: ", layers);
+    rotation: (selectedLayers) => {
+        
     },
-    flip: (layers) => {
-        console.log("Layers@FlipCall: ", layers);
+    flip: (lselectedLayers) => {
+        
     }
 }
 
