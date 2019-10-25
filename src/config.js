@@ -47,7 +47,11 @@ const methods = {
         }
     },
     rotation: (selectedLayers) => {
-        
+        for (let layer of selectedLayers.layers) {
+            let randomRotation = (Math.floor(Math.random() * 60) - 30);
+            console.log(randomRotation);
+            layer.transform.rotation = randomRotation;
+        }
     },
     flip: (lselectedLayers) => {
         
