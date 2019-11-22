@@ -17,6 +17,7 @@ export default function () {
     show: false
   }
 
+
   // Returns if no Layers are selected
   if(document.selectedLayers.isEmpty) {
     UI.message('No layers selected — Getchu some...');

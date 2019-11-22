@@ -35,8 +35,17 @@ const methods = {
             this.generateGrid(document);
         }
     },
-    generateGrid: (selectedLayers) => {
-        
+    generateGrid: (document) => {
+        for(let page of document.pages) {
+            if(page.selected) {
+                for(let artboard of page.layers) {
+                    if(artboard.selected) {
+                        console.log("found selected artboard");
+                    }
+                }
+            }
+        }
+        console.log(document);
     },
     opacity: (selectedLayers) => {
         for (let layer of selectedLayers.layers) {
