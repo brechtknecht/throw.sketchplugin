@@ -32,20 +32,58 @@ const methods = {
         }
 
         if(data.layout.columns || data.layout.rows) {
-            this.generateGrid(document);
+            this.generateGrid(document, data.layout);
         }
     },
-    generateGrid: (document) => {
-        for(let page of document.pages) {
-            if(page.selected) {
-                for(let artboard of page.layers) {
-                    if(artboard.selected) {
-                        console.log("found selected artboard");
-                    }
+    generateGrid: (document, layout) => {
+        let gridLayout;
+        let artboardWidth, artboardHeight;
+
+        let layer = document.selectedLayers.layers[0];
+        let layerID = layer.id;
+        let ArtboardFound = false;
+        if(layer.type == "Artboard") {
+            console.log("✅ Artboard found");
+        } else {
+            while (!ArtboardFound) {
+                let parent = document.getLayerWithID(layerID).parent;
+                if(parent.type == "Artboard") {
+                    artboardWidth = parent.frame.width;
+                    artboardHeight = parent.frame.height;
+
+                    ArtboardFound = true;
+                    console.log("✅ Artboard found deep");
+                } else {
+                    layerID = parent.id;
                 }
             }
-        }
-        console.log(document);
+        } 
+
+
+        console.log("Artboard Width: " + artboardWidth);
+        console.log("Artboard Height: " + artboardHeight);
+
+        
+
+
+
+
+
+        // for(let page of document.pages) {
+        //     if(page.selected) {
+        //         console.log("✅ Found Current Page");
+        //         for(let artboard of page.layers) {
+        //             if(artboard.selected) {
+        //                 artboardWidth = artboard.frame.width;
+        //                 artboardHeight = artboard.frame.height;
+
+        //                 console.log("✅ Found Current Artboard");
+
+
+        //             }
+        //         }
+        //     }
+        // }
     },
     opacity: (selectedLayers) => {
         for (let layer of selectedLayers.layers) {
