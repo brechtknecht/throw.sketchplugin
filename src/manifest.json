@@ -3,9 +3,10 @@
   "bundleVersion": 1,
   "commands": [
     {
-      "name": "my-command",
+      "name": "Throw ☄️",
       "identifier": "confetti-boy.my-command-identifier",
       "script": "./my-command.js",
+      "shortcut": "ctrl shift d",
       "handlers": {
         "run": "onRun",
         "actions": {

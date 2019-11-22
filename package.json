@@ -29,7 +29,7 @@
     "resources/**/*.js"
   ],
   "dependencies": {
-    "sketch-module-web-view": "^3.1.4"
+    "sketch-module-web-view": "3.4.1"
   },
   "author": "Felix Tesche <felix.tesche@gmail.com>"
 }

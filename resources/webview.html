@@ -9,48 +9,51 @@
 
 <body>
   <div id="debug"></div>
+  <div class="logo">
+    <img src="img/logo.png"/>
+  </div>
   <div class="dialog">
-    <h4>Please configure jour Jizz</h4>
-    <p>Your Jizz is organized in a grid. Please setup your Grid to get the results you are looking for</p>
+    <h4>Please configure jour Stuff</h4>
+    <p>Your Stuff is organized in a grid. Please setup your Grid to get the results you are looking for</p>
 
   </div>
   <div>
     <div class="row">
       <label>
         Columns ↔️
-        <input id="columns" value="1" />
+        <input class="quantity" id="columns" />
       </label>
 
       <label>
         Rows ↕️
-        <input id="rows" value="1" />
+        <input class="quantity" id="rows" />
       </label>
     </div>
     <div class="options">
       <div class="option">
         <label>
-          <input type="checkbox" id="opacity"> Randomize Opacity (between 70% — 100%)
+          <input class="checkbox" type="checkbox" id="opacity"> Randomize Opacity (between 70% — 100%)
         </label>
       </div>
       <div class="option">
         <label>
-          <input type="checkbox" id="size"> Randomize Size
+          <input class="checkbox" type="checkbox" id="size"> Randomize Size
         </label>
       </div>
       <div class="option">
         <label>
-          <input type="checkbox" id="rotation"> Randomiz e Rotation
+          <input class="checkbox" type="checkbox" id="rotation"> Randomize Rotation
         </label>
       </div>
       <div class="option">
         <label>
-          <input type="checkbox" id="flip"> Randomize Flip
+          <input class="checkbox" type="checkbox" id="flip"> Randomize Flip
         </label>
       </div>
     </div>
 
-    <button type="cancel">Cancel</button>
-    <button type="submit" id="submit">Save & Run</button>
+    <button class="passive" type="cancel">Cancel</button>
+    <button class="active" type="submit" id="submit">Save & Run</button>
   </div>
 
   <!-- notice the "../resources_" here. It's because webview.js will be compiled in a different folder with the prefix. -->

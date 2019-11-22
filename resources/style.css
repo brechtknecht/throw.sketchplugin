@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: #FAFAFA;
   padding: 3rem 3rem 1rem 3rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -33,13 +33,67 @@ input, textarea {
   user-select: auto;
 }
 
+button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: .5rem  1rem;
+  background: #fff;
+  border-radius: 8px;
+  outline: none;
+  outline: 0;
+  border: 0;
+}
+
+button.active {
+  color: #fff;
+  background: #0991F1;
+  border: 3px solid #0991F1;
+}
+
+ button.passive {
+   color: rgba(0,0,0,.60);
+   border: 3px solid rgba(0,0,0,.12);
+ }
+
+ .option {
+   height: 1.5rem;
+ }
+
+ label > input[type=checkbox] {
+   margin-right: .5rem;
+ }
+
+ input.quantity {
+   margin: 0 .5rem 0 0; 
+   height: 2rem;
+   padding: 0 .5rem;
+   border-radius: .35rem;
+   border: 2px solid rgba(0,0,0, .15);
+ }
+
+ input:hover {
+  border: 2px solid rgba(0,0,0, .25);
+ }
+
+ input:focus {
+   border: 2px solid #0991F1;
+   outline: none;
+ }
+
 h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
+p{
+  margin-top: 1rem;
+} 
+
 .row {
   display: flex;
+}
+
+.logo {
+  margin: 0 0 1rem 0;
 }
 
 input {

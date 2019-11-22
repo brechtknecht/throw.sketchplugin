@@ -4,6 +4,7 @@ import UI from 'sketch/ui'
 
 import config from './config'
 
+var Artboard = require('sketch/dom').Artboard
 var document = require('sketch/dom').getSelectedDocument()
 
 const webviewIdentifier = 'confetti-boy.webview'
@@ -11,8 +12,8 @@ const webviewIdentifier = 'confetti-boy.webview'
 export default function () {
   const options = {
     identifier: webviewIdentifier,
-    width: 550,
-    height: 350,
+    width: 600,
+    height: 510,
     show: false
   }
 
@@ -42,7 +43,7 @@ export default function () {
     getWebview(webviewIdentifier).close();
 
     // calls the manipulation methods
-    config.methods.execute(data, document.selectedLayers);
+    config.methods.execute(data, document);
 
     UI.message('Layers updated! ☄️');
   });
