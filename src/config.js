@@ -36,7 +36,10 @@ const methods = {
         }
     },
     generateGrid: (document, layout) => {
-        let gridLayout;
+        // Sketch API Requirements
+        var Rectangle = require('sketch/dom').Rectangle
+        const page = document.selectedPage;
+
         let artboardWidth, artboardHeight;
 
         let layer = document.selectedLayers.layers[0];
@@ -57,33 +60,56 @@ const methods = {
                     layerID = parent.id;
                 }
             }
-        } 
+        }
+        
+        
+
+        let grid = {
+            layout: {
+                width: artboardWidth,
+                height: artboardHeight,
+                columnWidth: artboardWidth / layout.columns,
+                rowHeight:   artboardHeight / layout.rows,
+            },
+            cells: []
+        }
+
+        let counter = layout.columns * layout.rows;
+        for (let cell = 0;  cell < counter; cell++) {
+            let x = cell % layout.columns;
+            let y = cell / layout.rows;
 
 
-        console.log("Artboard Width: " + artboardWidth);
-        console.log("Artboard Height: " + artboardHeight);
+            grid.cells.push({
+                name: "Cell",
+                cell: cell,
+                position: {
+                    x: x * grid.layout.columnWidth,
+                    y: (Math.floor(y)) * grid.layout.rowHeight
+                }
+            })
+        }
+
+        console.log("Grid Properties:", grid.cells);
+
+        // DRAW RECTS for measurement
+
+        for (let cell = 0; cell < grid.cells.length; cell++) {
+            document.selectedLayers.layers[cell].frame.x = grid.cells[cell].position.x
+            document.selectedLayers.layers[cell].frame.y = grid.cells[cell].position.y
+        }
+
+        console.log("done alla");
 
         
 
 
 
+        // ITERATE OVER LAYERS AND GIVE NEW POSITIONS
+        
+        
+        
 
-
-        // for(let page of document.pages) {
-        //     if(page.selected) {
-        //         console.log("✅ Found Current Page");
-        //         for(let artboard of page.layers) {
-        //             if(artboard.selected) {
-        //                 artboardWidth = artboard.frame.width;
-        //                 artboardHeight = artboard.frame.height;
-
-        //                 console.log("✅ Found Current Artboard");
-
-
-        //             }
-        //         }
-        //     }
-        // }
     },
     opacity: (selectedLayers) => {
         for (let layer of selectedLayers.layers) {

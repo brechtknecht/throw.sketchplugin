@@ -6,6 +6,7 @@ import config from './config'
 
 var Artboard = require('sketch/dom').Artboard
 var document = require('sketch/dom').getSelectedDocument()
+var Rectangle = require('sketch/dom').Rectangle
 
 const webviewIdentifier = 'confetti-boy.webview'
 
